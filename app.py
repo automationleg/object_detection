@@ -82,7 +82,7 @@ while True:
         prev_time = current_time
 
     # Display the processed frame
-    cv2.imshow("Object Detection", frame)
+    # cv2.imshow("Object Detection", frame)
 
     # Exit on 'q' key press
     if cv2.waitKey(1) & 0xFF == ord('q'):

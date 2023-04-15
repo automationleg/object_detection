@@ -1,17 +1,19 @@
 # Use an official Python runtime as the base image
 FROM python:3.10
 
+# Set the time zone to CET
+ENV TZ=CET
+
 # Set the working directory in the container
 WORKDIR /app
 
 # Install system dependencies
-# RUN apt-get update && apt-get install -y \
-#     build-essential \
-#     cmake \
-#     git \
-#     libsm6 \
-#     libxext6 \
-#     libxrender-dev
+RUN apt-get update && apt-get install -y \
+    libgl1-mesa-glx \
+    libglib2.0-0 \
+    libsm6 \
+    libxrender1 \
+    libxext6
 
 # Download yolov3.cfg and coco.names files
 RUN wget https://raw.githubusercontent.com/pjreddie/darknet/master/cfg/yolov3.cfg -O /app/yolov3.cfg && \

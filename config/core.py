@@ -5,15 +5,15 @@ from pydantic import BaseModel
 from strictyaml import YAML, load
 
 # Project Directories
-PROJECT_ROOT = Path(__file__).resolve().parent
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
 CONFIG_FILE_PATH = PROJECT_ROOT / "config.yml"
 
 class Cameras(BaseModel):
-    cam_garaz: str
-    cam_taras: str
-    cam_wejscie: str
-    cam_maly_taras: str
-    cam_schody: str
+    # cam_garaz: str
+    # cam_taras: str
+    # cam_wejscie: str
+    # cam_maly_taras: str
+    # cam_schody: str
     cam_salon: str
 
 class ModelConfig(BaseModel):
@@ -54,7 +54,7 @@ def create_and_validate_config(parsed_config: YAML = None) -> Config:
 
     # specify the data attribute from the strictaml YAML type
     _config = Config(
-        # app_config=AppConfig(**parsed_config.data),
+        cam_config=Cameras(**parsed_config.data),
         model_config=ModelConfig(**parsed_config.data)
     )
     return _config
