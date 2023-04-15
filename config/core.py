@@ -13,7 +13,7 @@ class Cameras(BaseModel):
     # cam_taras: str
     # cam_wejscie: str
     # cam_maly_taras: str
-    # cam_schody: str
+    cam_schody: str
     cam_salon: str
 
 class ModelConfig(BaseModel):
