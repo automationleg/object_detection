@@ -59,5 +59,14 @@ def create_and_validate_config(parsed_config: YAML = None) -> Config:
     )
     return _config
 
+def get_class_labels(coco_names_file: str = None) -> list:
+    if coco_names_file is None:
+        # Load class labels
+        coco_names_file = config.model_config.coco_names_file
+    with open(config.model_config.coco_names_file, "r") as f:
+        classes = [line.strip() for line in f.readlines()]
+
+    return classes
+
 
 config = create_and_validate_config()
