@@ -62,6 +62,6 @@ def predict_objects(cap: cv2.VideoCapture, net, classes) -> dict:
 
                     logging.info('object="{}" detected at x={}, y={}, width={}, height={}, confidence={}, current_time={:.2f}s'.format(classes[classId],x, y, w, h, confidence, current_time))
                     objects_detected["object"] = classes[classId]
-                    objects_detected["confidence"] = confidence
+                    objects_detected["confidence"] = str(confidence)
         
         return objects_detected

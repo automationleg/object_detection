@@ -40,7 +40,7 @@ def detect(camera_name):
     # cv2.destroyAllWindows()
 
     # Return the result in JSON format
-    return jsonify(detections['object'])
+    return jsonify(detections)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', debug=True)
